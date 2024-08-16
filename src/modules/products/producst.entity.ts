@@ -26,4 +26,6 @@ export class Product{
     @OneToMany(()=>Deatils_order,(deatils_order)=>deatils_order.product)
     detail_order:Deatils_order
 
+    // @OneToMany(()=>)
+
 }
