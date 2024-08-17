@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Details_cart } from "../details_cart/details_cart.entity";
 
 @Entity()
 export class Cart {
@@ -13,4 +14,7 @@ export class Cart {
 
     @Column({ length: 20 })
     status: string;
+
+    @OneToMany(()=>Details_cart,(detail_cart)=>detail_cart.cart)
+    detail_cart:Details_cart
 }

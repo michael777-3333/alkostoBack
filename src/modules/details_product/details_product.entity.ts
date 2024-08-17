@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Product } from "../products/producst.entity";
+import { Feature } from "../features/features.entity";
 
 @Entity()
 export class Details_product{
@@ -25,5 +27,12 @@ export class Details_product{
 
     @Column({ length: 500 })
     specifications: string;
+
+    @ManyToOne(()=> Product,(product)=>product.detail_product)
+    product:Product[]
+
+    @OneToMany(()=>Feature,(feature)=>feature.details_product)
+    features:Feature
+
 
 }

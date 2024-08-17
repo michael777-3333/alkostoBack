@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Order } from "../orders/orders.entity";
+import { Review } from "../reviews/reviews.entity";
 @Entity()
 export class User{
     @PrimaryGeneratedColumn()
@@ -25,4 +26,7 @@ export class User{
 
     @OneToMany(()=>Order,(order)=>order.user)// Se referencia al campo "user" en la entidad "Order"
     orders:Order[] // Un usuario tiene varios pedidos (array de órdenes)
+
+    @OneToMany(()=>Review,(review)=>review.user)
+    review:Review
 }
