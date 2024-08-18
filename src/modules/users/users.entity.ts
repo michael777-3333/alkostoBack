@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Order } from "../orders/orders.entity";
 import { Review } from "../reviews/reviews.entity";
 @Entity()
@@ -9,10 +9,13 @@ export class User{
     @Column({length:100})
     name:string;
 
+    @Column({unique:true})
+    cedula:string
+
     @Column({length:100})
     lastname:string
 
-    @Column()
+    @Column({unique:true})
     email:string
 
     @Column()
@@ -29,4 +32,10 @@ export class User{
 
     @OneToMany(()=>Review,(review)=>review.user)
     review:Review
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+  
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 }
