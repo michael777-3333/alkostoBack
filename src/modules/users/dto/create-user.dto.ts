@@ -30,6 +30,6 @@ export class CreateUserDto {
   address?: string;
 
   @IsOptional()
-  @IsPhoneNumber(null)
+  @IsPhoneNumber('CO')
   phone?: string;
 }

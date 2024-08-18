@@ -20,7 +20,7 @@ import { FeaturesModule } from './modules/features/features.module';
       password: 'michael777',
       database: 'alkosto',
       entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: false,
+      synchronize: true,
       retryDelay:3000,
       retryAttempts:10,
 
