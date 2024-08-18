@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Category } from "../categories/categories.entity";
 import { Deatils_order } from "../details_order/detail-order.entity";
 import { Details_product } from "../details_product/details_product.entity";
@@ -22,19 +22,28 @@ export class Product{
     @Column()
     stock:number
 
+    @Column()
+    paymethod:string
+
     @OneToOne(()=>Category)
     @JoinColumn()
     category:Category
 
     @OneToMany(()=>Deatils_order,(deatils_order)=>deatils_order.product)
-    detail_order:Deatils_order
+    detail_order:Deatils_order[]
 
     @OneToMany(()=>Details_product,(details_product)=>details_product.product)
-    detail_product:Details_product
+    detail_product:Details_product[]
 
     @OneToMany(()=>Review, (reviews)=>reviews.product)
-    review:Review
+    review:Review[]
 
     @OneToMany(()=>Details_cart,(deatils_cart)=>deatils_cart.product)
-    detail_cart:Details_cart
+    detail_cart:Details_cart[]
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+  
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 }

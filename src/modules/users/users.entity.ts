@@ -31,7 +31,7 @@ export class User{
     orders:Order[] // Un usuario tiene varios pedidos (array de órdenes)
 
     @OneToMany(()=>Review,(review)=>review.user)
-    review:Review
+    review:Review[]
 
     @CreateDateColumn({ type: 'timestamp' })
     createdAt: Date;
