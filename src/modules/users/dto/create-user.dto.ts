@@ -29,6 +29,10 @@ export class CreateUserDto {
   @IsString()
   address?: string;
 
+  @IsNotEmpty()
+  @IsString()
+  paymethod:string;
+
   @IsOptional()
   @IsPhoneNumber('CO')
   phone?: string;

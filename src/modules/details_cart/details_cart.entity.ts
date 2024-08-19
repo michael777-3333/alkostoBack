@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Product } from "../products/producst.entity";
 import { Cart } from "../carts/cars.entity";
 
@@ -20,9 +20,15 @@ export class Details_cart {
     unitPrice: number;
 
     @ManyToOne(()=> Product,(product)=>product.detail_cart)
-    product:Product[]
+    @JoinColumn({
+        name:'product_id'
+    })
+    product:Product
 
     @ManyToOne(()=>Cart,(cart)=>cart.detail_cart)
+    @JoinColumn({
+        name:'cart_id'
+    })
     cart:Cart[]
 
 }

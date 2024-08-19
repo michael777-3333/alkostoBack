@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Product } from "../products/producst.entity";
 import { Feature } from "../features/features.entity";
 
@@ -29,7 +29,10 @@ export class Details_product{
     specifications: string;
 
     @ManyToOne(()=> Product,(product)=>product.detail_product)
-    product:Product[]
+    @JoinColumn({
+        name:'product_id'
+    })
+    product:Product
 
     @OneToMany(()=>Feature,(feature)=>feature.details_product)
     features:Feature

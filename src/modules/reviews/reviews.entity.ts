@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Product } from "../products/producst.entity";
 import { User } from "../users/users.entity";
 
@@ -14,8 +14,14 @@ export class Review {
     description: string;
 
     @ManyToOne(()=>Product,(product)=>product.review)
-    product:Product[]
+    @JoinColumn({
+        name:'product_id'
+    })
+    product:Product
 
     @ManyToOne(()=>User,(user)=>user.review)
-    user:User[]
+    @JoinColumn({
+        name:'user_id'
+    })
+    user:User
 }

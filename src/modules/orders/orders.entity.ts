@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { User } from '../users/users.entity';
 import { Deatils_order } from '../details_order/detail-order.entity';
 
@@ -23,8 +23,17 @@ export class Order {
   shipment_dereccion: string;
 
   @ManyToOne(() => User, (user) => user.orders) // Se referencia al campo "orders" en la entidad "User"
+  @JoinColumn({
+    name:'user_id'
+  })
   user: User; // Cada pedido pertenece a un solo usuario
 
   @OneToMany(()=>Deatils_order,(details_order)=>details_order)
   details_order:Deatils_order[]
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt: Date;
 }

@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Product } from "../products/producst.entity";
 import { Order } from "../orders/orders.entity";
 
@@ -17,9 +17,15 @@ export class Deatils_order{
     subtotal:number
 
     @ManyToOne(()=> Product,(product)=>product.detail_order)
-    product:Product[]
+    @JoinColumn({
+        name:'product_id'
+    })
+    product:Product;
 
     @ManyToOne(()=>Order,(order)=>order.details_order)
-    order:Order[]
+    @JoinColumn({
+        name:'order_id'
+    })
+    order:Order;
     
 }

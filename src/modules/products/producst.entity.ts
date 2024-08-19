@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Category } from "../categories/categories.entity";
 import { Deatils_order } from "../details_order/detail-order.entity";
 import { Details_product } from "../details_product/details_product.entity";
@@ -25,8 +25,10 @@ export class Product{
     @Column()
     paymethod:string
 
-    @OneToOne(()=>Category)
-    @JoinColumn()
+    @ManyToOne(()=>Category,(category)=>category.product)
+    @JoinColumn({
+        name:'category_id'
+    })
     category:Category
 
     @OneToMany(()=>Deatils_order,(deatils_order)=>deatils_order.product)

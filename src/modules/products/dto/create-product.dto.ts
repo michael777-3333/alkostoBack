@@ -23,8 +23,12 @@ export class CreateProductDto {
   stock: number;
 
   @IsNotEmpty()
-  @ValidateNested()
-  @Type(() => Category)
-  category: Category;
+  @IsString()
+  paymethod:string;
+
+  @IsNotEmpty()
+  // @ValidateNested()
+  // @Type(() => Category)
+  category_id: number;
 
 }
