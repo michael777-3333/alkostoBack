@@ -1,6 +1,7 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Product } from "../products/producst.entity";
 import { Feature } from "../features/features.entity";
+import { Details_products_and_features } from "../details_products_and_features/details_products_and_features.entity";
 
 @Entity()
 export class Details_product{
@@ -34,9 +35,9 @@ export class Details_product{
     })
     product:Product
 
-    @OneToMany(()=>Feature,(feature)=>feature.details_product)
-    features:Feature
 
+    @OneToMany(()=> Details_products_and_features,(details_products_and_features) =>details_products_and_features.detailProduct)
+    details_P_F:Details_products_and_features[]
 
     @CreateDateColumn({ type: 'timestamp' })
     createdAt: Date;

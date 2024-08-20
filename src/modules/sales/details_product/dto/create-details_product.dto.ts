@@ -35,7 +35,7 @@ export class CreateDetailsProductDto {
     @IsNumber()
     product_id: number;
 
-    @IsNotEmpty()
-    @IsNumber()
-    feature_id:number;
+    // @IsNotEmpty()
+    // @IsNumber()
+    // feature_id:number;
   }

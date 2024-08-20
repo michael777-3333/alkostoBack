@@ -11,6 +11,7 @@ import { DetailsCartModule } from './modules/sales/details_cart/details_cart.mod
 import { DetailsProductModule } from './modules/sales/details_product/details_product.module';
 import { ReviewsModule } from './modules/sales/reviews/reviews.module';
 import { FeaturesModule } from './modules/sales/features/features.module';
+import { DetailsProductsAndFeaturesModule } from './modules/sales/details_products_and_features/details_products_and_features.module';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import { FeaturesModule } from './modules/sales/features/features.module';
     }),
     
     UsersModule, 
-    CategoriesModule, OrdersModule, ProductsModule, DetailsOrderModule, CartsModule, DetailsCartModule, DetailsProductModule, ReviewsModule, FeaturesModule],
+    CategoriesModule, OrdersModule, ProductsModule, DetailsOrderModule, CartsModule, DetailsCartModule, DetailsProductModule, ReviewsModule, FeaturesModule, DetailsProductsAndFeaturesModule],
   controllers: [],
   providers: [  ],
 })
