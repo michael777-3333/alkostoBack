@@ -1,6 +1,6 @@
 import { Type } from "class-transformer";
 import { IsBoolean, IsNotEmpty, IsNumber, IsPositive, IsString, ValidateNested } from "class-validator";
-import { User } from "src/modules/users/users.entity";
+// import { User } from "src/modules/users/users.entity";
 
 export class CreateOrderDto {
     @IsNotEmpty()

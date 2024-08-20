@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty, IsNumber, IsOptional, IsInt, ValidateNested, IsPositive } from '@nestjs/class-validator';
 import { Type } from 'class-transformer';
-import { Category } from 'src/modules/categories/categories.entity';
+// import { Category } from 'src/modules/categories/categories.entity';
 
 
 export class CreateProductDto {
@@ -22,9 +22,6 @@ export class CreateProductDto {
   @IsPositive()
   stock: number;
 
-  @IsNotEmpty()
-  @IsString()
-  paymethod:string;
 
   @IsNotEmpty()
   // @ValidateNested()

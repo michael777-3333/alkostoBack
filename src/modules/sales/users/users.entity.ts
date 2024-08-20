@@ -1,6 +1,7 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Order } from "../orders/orders.entity";
 import { Review } from "../reviews/reviews.entity";
+import { Order } from "../orders/orders.entity";
+Order
 @Entity()
 export class User{
     @PrimaryGeneratedColumn()

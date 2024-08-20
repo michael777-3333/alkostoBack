@@ -1,8 +1,8 @@
 // import { ApiProperty } from '@nestjs/swagger';
 
 import { IsNotEmpty, IsNumber, IsPositive, ValidateNested } from "class-validator";
-import { Order } from "src/modules/orders/orders.entity";
-import { Product } from "src/modules/products/producst.entity";
+// import { Order } from "src/modules/orders/orders.entity";
+// import { Product } from "src/modules/products/producst.entity";
 
 export class CreateDetailsOrderDto {
     @IsNotEmpty()

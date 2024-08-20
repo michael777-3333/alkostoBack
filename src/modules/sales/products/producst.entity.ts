@@ -1,9 +1,9 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Review } from "../reviews/reviews.entity";
+import { Details_cart } from "../details_cart/details_cart.entity";
 import { Category } from "../categories/categories.entity";
 import { Deatils_order } from "../details_order/detail-order.entity";
 import { Details_product } from "../details_product/details_product.entity";
-import { Review } from "../reviews/reviews.entity";
-import { Details_cart } from "../details_cart/details_cart.entity";
 
 @Entity()
 export class Product{
@@ -22,8 +22,7 @@ export class Product{
     @Column()
     stock:number
 
-    @Column()
-    paymethod:string
+
 
     @ManyToOne(()=>Category,(category)=>category.product)
     @JoinColumn({
