@@ -7,12 +7,6 @@ export class Details_cart {
     @PrimaryGeneratedColumn()
     id: number;
 
-    // @Column()
-    // cartId: number;
-
-    // @Column()
-    // productId: number;
-
     @Column()
     quantity: number;
 
@@ -29,6 +23,6 @@ export class Details_cart {
     @JoinColumn({
         name:'cart_id'
     })
-    cart:Cart[]
+    cart:Cart
 
 }

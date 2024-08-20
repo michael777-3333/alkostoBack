@@ -10,13 +10,6 @@ export class Feature {
     @Column({ length: 100 })
     name: string;
 
-    
-    // @ManyToOne(()=>Details_product,(details_product)=>details_product.features)
-    // @JoinColumn({
-    //     name:'details_order_id'
-    // })
-    // details_product:Details_product
-
     @OneToMany(()=>Details_products_and_features,(details_P_F)=>details_P_F.feature)
     details_P_F:Details_products_and_features[]
 
