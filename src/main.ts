@@ -13,6 +13,7 @@ async function bootstrap() {
     whitelist: true, // Elimina propiedades no definidas en el DTO
     forbidNonWhitelisted: true, // Lanza una excepción si se envían propiedades no definidas
   })); 
+  const PORT = process.env.PORT || 8080;
   await app.listen(3000);
 }
 bootstrap();

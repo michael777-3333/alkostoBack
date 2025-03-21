@@ -12,22 +12,25 @@ import { DetailsProductModule } from './modules/sales/details_product/details_pr
 import { ReviewsModule } from './modules/sales/reviews/reviews.module';
 import { FeaturesModule } from './modules/sales/features/features.module';
 import { DetailsProductsAndFeaturesModule } from './modules/sales/details_products_and_features/details_products_and_features.module';
+import * as dotenv from 'dotenv';
+
+dotenv.config(); 
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'michael777',
-      database: 'alkosto',
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      username: process.env.DB_USERNAME, 
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: true,
-      retryDelay:3000,
-      retryAttempts:10,
-
+      synchronize: process.env.DB_SYNC === 'true',
+      retryDelay: Number(process.env.DB_RETRY_DELAY) || 3000,
+      retryAttempts: Number(process.env.DB_RETRY_ATTEMPTS) || 10,
     }),
+    
     
     UsersModule, 
     CategoriesModule, OrdersModule, ProductsModule, DetailsOrderModule, CartsModule, DetailsCartModule, DetailsProductModule, ReviewsModule, FeaturesModule, DetailsProductsAndFeaturesModule],
